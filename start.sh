@@ -4,6 +4,8 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+. /root/.piler.env
+
 DATAROOTDIR="/usr/share"
 SYSCONFDIR="/etc"
 SPHINXCFG="/etc/piler/sphinx.conf"
