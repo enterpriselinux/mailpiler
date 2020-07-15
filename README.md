@@ -24,10 +24,26 @@ docker run -d --name mpiler -p 25:25 -p 80:80 -e PILER_HOST=mpiler.yourdomain.co
 ```
 # Running with docker-compose
 
+## Clone the Repository
+
+First clone the repository:
+
+```
+git clone https://github.com/enterpriselinux/mailpiler.git /opt/mpiler
+
 Change the PILER_HOST=mpiler.yourdomain.com to match with your hostname. Run the command:
 
 ```
+cd /opt/mpiler
 docker-compose up -d
+
+```
+# Observing Mailpiler SMTP Logs
+
+Run the following command:
+
+```
+docker-compose exec mpiler tail -f /var/log/syslog
 ```
 
 
