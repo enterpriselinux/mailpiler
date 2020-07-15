@@ -11,6 +11,6 @@ services:
       - /var/piler:/var/piler
       - /var/mysql:/var/lib/mysql
     ports:
-      - 25:25
-      - 80:80 
+      - "25:25"
+      - "80:80" 
     restart: always
