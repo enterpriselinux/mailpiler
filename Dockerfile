@@ -6,26 +6,25 @@ LABEL description="piler container" \
       maintainer="Chinthaka Deshapriya, chinthaka@cybergate.lk" \
       package="${PACKAGE}"
 
-# ENV DEBIAN_FRONTEND="noninteractive" \
-#    DISTRO="bionic" \
-#    DOWNLOAD_URL="https://download.mailpiler.com" \
-#    PILER_USER="piler" \
-#    MYSQL_HOSTNAME="localhost" \
-#    MYSQL_DATABASE="piler" \
-#    MYSQL_PILER_PASSWORD="piler123" \
-#    MYSQL_ROOT_PASSWORD="abcde123" \
-#    SPHINX_BIN_TARGZ="sphinx-3.1.1-bin.tar.gz"
-COPY .buildrc /root/.buildrc
-RUN . /root/.buildrc
+ENV DEBIAN_FRONTEND="noninteractive" \
+    DISTRO="bionic" \
+    DOWNLOAD_URL="https://download.mailpiler.com" \
+    PILER_USER="piler" \
+    MYSQL_HOSTNAME="localhost" \
+    MYSQL_DATABASE="piler" \
+    SPHINX_BIN_TARGZ="sphinx-3.1.1-bin.tar.gz"
 
 ADD "https://bitbucket.org/jsuto/piler/downloads/${PACKAGE}" "/${PACKAGE}"
 ADD start.sh /start.sh
-
+RUN chmod +x /start.sh 
 RUN apt-get update && \
     apt-get -y --no-install-recommends install \
        wget rsyslog openssl sysstat php7.2-cli php7.2-cgi php7.2-mysql php7.2-fpm php7.2-zip php7.2-ldap \
        php7.2-gd php7.2-curl php7.2-xml catdoc unrtf poppler-utils nginx tnef sudo libodbc1 libpq5 libzip4 \
        libtre5 libwrap0 cron libmariadb3 libmysqlclient-dev python python-mysqldb mariadb-server && \
+    echo "MYSQL_PILER_PASSWORD=$(openssl rand -base64 8)" > /root/.piler.env && \
+    echo "MYSQL_ROOT_PASSWORD=$(openssl rand -base64 8)" >> /root/.piler.env && \
+    . /root/.piler.env && \
     service mysql start && mysqladmin -u root password ${MYSQL_ROOT_PASSWORD} && \
     wget --no-check-certificate -q -O ${SPHINX_BIN_TARGZ} ${DOWNLOAD_URL}/generic-local/${SPHINX_BIN_TARGZ} && \
     tar zxvf ${SPHINX_BIN_TARGZ} && \
