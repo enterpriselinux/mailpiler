@@ -1,2 +1,0 @@
-# mailpiler
-Mailpiler Docker Contailner
