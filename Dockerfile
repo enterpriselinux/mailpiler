@@ -6,17 +6,19 @@ LABEL description="piler container" \
       maintainer="Chinthaka Deshapriya, chinthaka@cybergate.lk"
       package="${PACKAGE}"
 
-ENV DEBIAN_FRONTEND="noninteractive" \
-    DISTRO="bionic" \
-    DOWNLOAD_URL="https://download.mailpiler.com" \
-    PILER_USER="piler" \
-    MYSQL_HOSTNAME="localhost" \
-    MYSQL_DATABASE="piler" \
-    MYSQL_PILER_PASSWORD="piler123" \
-    MYSQL_ROOT_PASSWORD="abcde123" \
-    SPHINX_BIN_TARGZ="sphinx-3.1.1-bin.tar.gz"
+# ENV DEBIAN_FRONTEND="noninteractive" \
+#    DISTRO="bionic" \
+#    DOWNLOAD_URL="https://download.mailpiler.com" \
+#    PILER_USER="piler" \
+#    MYSQL_HOSTNAME="localhost" \
+#    MYSQL_DATABASE="piler" \
+#    MYSQL_PILER_PASSWORD="piler123" \
+#    MYSQL_ROOT_PASSWORD="abcde123" \
+#    SPHINX_BIN_TARGZ="sphinx-3.1.1-bin.tar.gz"
+COPY .buildrc /root/.buildrc
+RUN . /root/.buildrc
 
-ADD "https://bitbucket.org/jsuto/piler/downloads/${PACKAGE}" "/${PACKAGE}"
+ADD "https://bitbucket.org/jsuto/piler/downloads/${PACKAGE}" "/${PACKAGE}c
 ADD start.sh /start.sh
 
 RUN apt-get update && \
@@ -33,7 +35,7 @@ RUN apt-get update && \
     mkdir /etc/piler && \
     printf "[mysql]\nuser = piler\npassword = ${MYSQL_PILER_PASSWORD}\n" > /etc/piler/.my.cnf && \
     printf "[mysql]\nuser = root\npassword = ${MYSQL_ROOT_PASSWORD}\n" > /root/.my.cnf && \
-    echo "alias mysql='mysql --defaults-file=/etc/piler/.my.cnf'" > /root/.bashrc && \
+    echo "alias mysql='mysql --defaults-file=/etc/piler/.my.cnrcf'" > /root/.bashrc && \
     echo "alias t='tail -f /var/log/syslog'" >> /root/.bashrc && \
     dpkg -i $PACKAGE && \
     crontab -u $PILER_USER /usr/share/piler/piler.cron && \
