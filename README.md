@@ -22,3 +22,13 @@ Set the PILER_HOST env variable to match your hostname,
 ```
 docker run -d --name mpiler -p 25:25 -p 80:80 -e PILER_HOST=mpiler.yourdomain.com cghub/mailpiler
 ```
+# Running with docker-compose
+
+Change the PILER_HOST=mpiler.yourdomain.com to match with your hostname. Run the command:
+
+```
+docker-compose up -d
+```
+
+
+
