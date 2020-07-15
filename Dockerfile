@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 ARG PACKAGE
 
 LABEL description="piler container" \
-      maintainer="Chinthaka Deshapriya, chinthaka@cybergate.lk"
+      maintainer="Chinthaka Deshapriya, chinthaka@cybergate.lk" \
       package="${PACKAGE}"
 
 # ENV DEBIAN_FRONTEND="noninteractive" \
@@ -18,7 +18,7 @@ LABEL description="piler container" \
 COPY .buildrc /root/.buildrc
 RUN . /root/.buildrc
 
-ADD "https://bitbucket.org/jsuto/piler/downloads/${PACKAGE}" "/${PACKAGE}c
+ADD "https://bitbucket.org/jsuto/piler/downloads/${PACKAGE}" "/${PACKAGE}"
 ADD start.sh /start.sh
 
 RUN apt-get update && \
