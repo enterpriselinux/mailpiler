@@ -1,5 +1,7 @@
 # Preparing the Build Envioronment
 
+Run the follwing command to create `.buildrc` file.
+
 ```
 bash env.sh
 ```
