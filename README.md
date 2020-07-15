@@ -37,7 +37,6 @@ Change the PILER_HOST=mpiler.yourdomain.com to match with your hostname. Run the
 ```
 cd /opt/mpiler
 docker-compose up -d
-
 ```
 # Observing Mailpiler SMTP Logs
 
