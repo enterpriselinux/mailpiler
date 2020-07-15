@@ -2,7 +2,7 @@
 version: "3"
 services:
   mpiler:
-    image: cghub/mpiler
+    image: cghub/mailpiler
     container_name: mpiler
     hostname: mpiler
     environment:
