@@ -30,6 +30,7 @@ First clone the repository:
 
 ```
 git clone https://github.com/enterpriselinux/mailpiler.git /opt/mpiler
+```
 
 Change the PILER_HOST=mpiler.yourdomain.com to match with your hostname. Run the command:
 
