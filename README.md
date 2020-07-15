@@ -1,3 +1,9 @@
+# Preparing the Build Envioronment
+
+```
+bash env.sh
+```
+
 # Buiding the Latest Docker Image 
 
 Pick the latest deb package from Bitbucket download page (https://bitbucket.org/jsuto/piler/downloads/)
