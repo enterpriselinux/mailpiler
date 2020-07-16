@@ -5,7 +5,7 @@ Pick the latest deb package from Bitbucket download page (https://bitbucket.org/
 Run the following command to download it.
 
 ```
-wget piler_1.3.7-bionic-94c54a0_amd64.deb
+wget https://bitbucket.org/jsuto/piler/downloads/piler_1.3.7-bionic-94c54a0_amd64.deb
 ```
 Run the following comand to build the docker image. 
 
