@@ -34,7 +34,7 @@ RUN apt-get update && \
     mkdir /etc/piler && \
     printf "[mysql]\nuser = piler\npassword = ${MYSQL_PILER_PASSWORD}\n" > /etc/piler/.my.cnf && \
     printf "[mysql]\nuser = root\npassword = ${MYSQL_ROOT_PASSWORD}\n" > /root/.my.cnf && \
-    echo "alias mysql='mysql --defaults-file=/etc/piler/.my.cnrcf'" > /root/.bashrc && \
+    echo "alias mysql='mysql --defaults-file=/etc/piler/.my.cnf'" > /root/.bashrc && \
     echo "alias t='tail -f /var/log/syslog'" >> /root/.bashrc && \
     dpkg -i $PACKAGE && \
     crontab -u $PILER_USER /usr/share/piler/piler.cron && \
