@@ -10,6 +10,7 @@ DATAROOTDIR="/usr/share"
 SYSCONFDIR="/etc"
 SPHINXCFG="/etc/piler/sphinx.conf"
 PILER_HOST=$(hostname -f)
+PILER_USER="piler"
 MYSQL_DATABASE="piler"
 MYSQL_HOSTNAME="localhost"
 PILER_CONF="/etc/piler/piler.conf"
