@@ -1,18 +1,10 @@
-# Preparing the Build Envioronment
-
-Run the follwing command to create `.buildrc` file.
-
-```
-bash env.sh
-```
-
 # Buiding the Latest Docker Image 
 
 Pick the latest deb package from Bitbucket download page (https://bitbucket.org/jsuto/piler/downloads/)
 and use it as the PACKAGE build argument, for example.
 
 ```
-docker build --build-arg PACKAGE=piler_1.3.6~bionic-65cc7eb_amd64.deb -t cghub/mailpiler .
+docker build --build-arg PACKAGE=piler_1.3.7-bionic-94c54a0_amd64.deb -t cghub/mailpiler .
 ```
 
 # How to Run the Image
