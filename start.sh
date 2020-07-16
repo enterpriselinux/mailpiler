@@ -9,7 +9,9 @@ set -o nounset
 DATAROOTDIR="/usr/share"
 SYSCONFDIR="/etc"
 SPHINXCFG="/etc/piler/sphinx.conf"
-PILER_HOST=${PILER_HOST:-archive.yourdomain.com}
+PILER_HOST=$(hostname -f)
+MYSQL_DATABASE="piler"
+MYSQL_HOSTNAME="localhost"
 PILER_CONF="/etc/piler/piler.conf"
 CONFIG_SITE_PHP="/etc/piler/config-site.php"
 CONFIG_PHP="/var/piler/www/config.php"
