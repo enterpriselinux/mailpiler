@@ -10,7 +10,7 @@ wget https://bitbucket.org/jsuto/piler/downloads/piler_1.3.7-bionic-94c54a0_amd6
 Run the following comand to build the docker image. 
 
 ```
-docker build --build-arg PACKAGE=${PACKAGE} --build-arg MYSQL_PILER_PASSWORD=${MYSQL_PILER_PASSWORD} --buid-arg MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} -t cghub/mailpiler .
+docker build --build-arg PACKAGE=${PACKAGE} --build-arg MYSQL_PILER_PASSWORD=${MYSQL_PILER_PASSWORD} --build-arg MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} -t cghub/mailpiler .
 ```
 
 # How to Run the Image
