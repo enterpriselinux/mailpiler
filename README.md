@@ -1,6 +1,13 @@
 # Buiding the Latest Docker Image 
 
-Pick the latest deb package from Bitbucket download page (https://bitbucket.org/jsuto/piler/downloads/) and use it as the PACKAGE build argument. As of writing  this guide the latest version is `piler_1.3.7-bionic-94c54a0_amd64.deb`. Run the following comand to build it with this version. 
+Pick the latest deb package from Bitbucket download page (https://bitbucket.org/jsuto/piler/downloads/) and use it as the PACKAGE build argument. As of writing  this guide the latest version is `piler_1.3.7-bionic-94c54a0_amd64.deb`.
+
+Run the following command to download it.
+
+```
+wget piler_1.3.7-bionic-94c54a0_amd64.deb
+```
+Run the following comand to build the docker image. 
 
 ```
 docker build --build-arg PACKAGE=piler_1.3.7-bionic-94c54a0_amd64.deb -t cghub/mailpiler .
