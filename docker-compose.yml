@@ -9,7 +9,6 @@ services:
       - PILER_HOST=mpiler.yourdomain.com
     volumes:
       - /var/piler:/var/piler
-      - /var/mysql:/var/lib/mysql
     ports:
       - "25:25"
       - "80:80" 
