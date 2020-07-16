@@ -8,7 +8,7 @@ MYSQL_DATABASE="piler"
 MYSQL_PILER_PASSWORD=$(openssl rand -base64 8)
 MYSQL_ROOT_PASSWORD=$(openssl rand -base64 8)
 SPHINX_BIN_TARGZ="sphinx-3.1.1-bin.tar.gz"
-cat << EOF > ./.buildrc
+cat << EOF > ./.env
 PACKAGE=${PACKAGE}
 DEBIAN_FRONTEND=${DEBIAN_FRONTEND}
 DISTRO=${DISTRO}
