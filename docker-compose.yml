@@ -12,7 +12,7 @@ services:
     volumes:
       - piler_data:/var/piler
       - piler_conf:/etc/piler
-      - mysql_data:/opt/mysql/data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
     ports:
       - "25:25"
       - "80:80"
