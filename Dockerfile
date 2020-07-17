@@ -21,7 +21,7 @@ ADD start.sh /start.sh
 RUN chmod +x /start.sh 
 RUN apt-get update && \
     apt-get -y --no-install-recommends install \
-       wget rsyslog openssl sysstat php7.2-cli php7.2-cgi php7.2-mysql php7.2-fpm php7.2-zip php7.2-ldap \
+       wget rsyslog openssl sysstat php7.2-cli php7.2-cgi php7.2-mysql php7.2-fpm php7.2-zip php7.2-ldap nano \
        php7.2-gd php7.2-curl php7.2-xml catdoc unrtf poppler-utils nginx tnef sudo libodbc1 libpq5 libzip4 \
        libtre5 libwrap0 cron libmariadb3 libmysqlclient-dev python python-mysqldb mariadb-server && \
     # echo "MYSQL_PILER_PASSWORD=$(openssl rand -base64 8)" > /root/.piler.env && \
