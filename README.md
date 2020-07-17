@@ -43,5 +43,5 @@ docker-compose exec mpiler tail -f /var/log/syslog
 
 # Mailpiler Help
 
-For addition documentation visit [Mailpiler Wiki](http://www.mailpiler.org/wiki/current:index)
+For additional documentation visit [Mailpiler Wiki](http://www.mailpiler.org/wiki/current:index)
 
