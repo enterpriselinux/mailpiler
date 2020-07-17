@@ -9,7 +9,7 @@ services:
       - PILER_HOST=mpiler.demo.cybergate.lk
       - MYSQL_PILER_PASSWORD=${MYSQL_PILER_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-    #volumes:
+    volumes:
       - piler_data:/var/piler
       - piler_conf:/etc/piler
       - mysql_data:/opt/mysql/data:/var/lib/mysql
