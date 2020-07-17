@@ -4,16 +4,21 @@ services:
   mpiler:
     image: cghub/mailpiler
     container_name: mpiler
-    hostname: mpiler.yourdomain.com
+    hostname: mpiler.demo.cybergate.lk
     environment:
-      - PILER_HOST=mpiler.yourdomain.com
+      - PILER_HOST=mpiler.demo.cybergate.lk
       - MYSQL_PILER_PASSWORD=${MYSQL_PILER_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-    volumes:
-      - /opt/piler/data:/var/piler
-      - /opt/piler/conf:/etc/piler
-      - /opt/mysql/data:/var/lib/mysql
+    #volumes:
+      - piler_data:/var/piler
+      - piler_conf:/etc/piler
+      - mysql_data:/opt/mysql/data:/var/lib/mysql
     ports:
       - "25:25"
-      - "80:80" 
+      - "80:80"
     restart: always
+volumes:
+  piler_data:
+  piler_conf:
+  mysql_data:
+
