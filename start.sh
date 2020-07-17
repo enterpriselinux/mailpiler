@@ -82,7 +82,13 @@ fix_configs() {
 service rsyslog start
 service mysql start
 
-create_mysql_db
+if mysqlshow -p${MYSQL_ROOT_PASSWORD} 2>/dev/null| grep -q "${MYSQL_DATABASE}"
+then
+    echo "${MYSQL_DATABASE} database already exist."
+else
+   create_mysql_db
+fi
+
 pre_seed_sphinx
 fix_configs
 
